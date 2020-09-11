@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const logger = require('morgan');
+const { PORT } = require('./config/constant');
 const Routes = require('./routes/Routes');
 
 const app = express();
@@ -25,7 +26,6 @@ const router = express.Router();
 Routes.createRoutes(router);
 app.use('/', router);
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
   console.log(`App is listening to port ${PORT}.`);
 });
