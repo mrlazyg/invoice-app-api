@@ -1,10 +1,8 @@
-module.exports = {
-  PORT: process.env.PORT || 3000,
-  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/',
-  DB_OPTIONS: {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    dbName: 'DEV_DB',
-  },
-  DB_NAME: 'DEV_DB',
-};
+const { DEV_ENV } = require('../env/dev');
+
+const globalConstants = {};
+
+globalConstants.PORT = process.env.PORT || DEV_ENV.PORT;
+globalConstants.APP_NAME = 'Invoice App';
+
+module.exports = globalConstants;
